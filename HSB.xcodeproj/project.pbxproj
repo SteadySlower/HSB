@@ -13,6 +13,12 @@
 		064D296727681A36000F4931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064D296527681A36000F4931 /* Main.storyboard */; };
 		064D296927681A37000F4931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064D296827681A37000F4931 /* Assets.xcassets */; };
 		064D296C27681A37000F4931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064D296A27681A37000F4931 /* LaunchScreen.storyboard */; };
+		064D297527681B47000F4931 /* FaceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297427681B47000F4931 /* FaceCheckViewController.swift */; };
+		064D297B27681BC4000F4931 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297A27681BC3000F4931 /* Student.swift */; };
+		064D297D27681DCC000F4931 /* FaceCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297C27681DCC000F4931 /* FaceCheckViewModel.swift */; };
+		064D297F276821AE000F4931 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297E276821AE000F4931 /* Error.swift */; };
+		064D298227682F7D000F4931 /* FaceCheckButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D298127682F7D000F4931 /* FaceCheckButtonSet.swift */; };
+		065B7379276948C300953E4E /* FaceCheckInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7378276948C300953E4E /* FaceCheckInputCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		064D296827681A37000F4931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		064D296B27681A37000F4931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		064D296D27681A37000F4931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		064D297427681B47000F4931 /* FaceCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckViewController.swift; sourceTree = "<group>"; };
+		064D297A27681BC3000F4931 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		064D297C27681DCC000F4931 /* FaceCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckViewModel.swift; sourceTree = "<group>"; };
+		064D297E276821AE000F4931 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		064D298127682F7D000F4931 /* FaceCheckButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckButtonSet.swift; sourceTree = "<group>"; };
+		065B7378276948C300953E4E /* FaceCheckInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckInputCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,11 @@
 		064D295E27681A36000F4931 /* HSB */ = {
 			isa = PBXGroup;
 			children = (
+				064D297927681BB2000F4931 /* Model */,
+				064D297827681BAA000F4931 /* API */,
+				064D297727681B9F000F4931 /* View */,
+				064D297627681B96000F4931 /* ViewModel */,
+				064D297327681AEB000F4931 /* Controller */,
 				064D295F27681A36000F4931 /* AppDelegate.swift */,
 				064D296127681A36000F4931 /* SceneDelegate.swift */,
 				064D296327681A36000F4931 /* ViewController.swift */,
@@ -65,6 +82,55 @@
 				064D296D27681A37000F4931 /* Info.plist */,
 			);
 			path = HSB;
+			sourceTree = "<group>";
+		};
+		064D297327681AEB000F4931 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				064D297427681B47000F4931 /* FaceCheckViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		064D297627681B96000F4931 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				064D297C27681DCC000F4931 /* FaceCheckViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		064D297727681B9F000F4931 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				064D298027682F6E000F4931 /* Buttons (deprecated) */,
+				065B7378276948C300953E4E /* FaceCheckInputCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		064D297827681BAA000F4931 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		064D297927681BB2000F4931 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				064D297A27681BC3000F4931 /* Student.swift */,
+				064D297E276821AE000F4931 /* Error.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		064D298027682F6E000F4931 /* Buttons (deprecated) */ = {
+			isa = PBXGroup;
+			children = (
+				064D298127682F7D000F4931 /* FaceCheckButtonSet.swift */,
+			);
+			path = "Buttons (deprecated)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				064D297527681B47000F4931 /* FaceCheckViewController.swift in Sources */,
+				064D298227682F7D000F4931 /* FaceCheckButtonSet.swift in Sources */,
 				064D296427681A36000F4931 /* ViewController.swift in Sources */,
 				064D296027681A36000F4931 /* AppDelegate.swift in Sources */,
+				064D297B27681BC4000F4931 /* Student.swift in Sources */,
+				064D297D27681DCC000F4931 /* FaceCheckViewModel.swift in Sources */,
+				064D297F276821AE000F4931 /* Error.swift in Sources */,
+				065B7379276948C300953E4E /* FaceCheckInputCell.swift in Sources */,
 				064D296227681A36000F4931 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
