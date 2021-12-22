@@ -15,11 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-            //👉 현재 윈도우 객체를 가져와서
-        window?.rootViewController = FaceCheckViewController()
-            //👉 rootVC를 연결한다.
+        window?.rootViewController = MainTabController()
         window?.makeKeyAndVisible()
-            //👉 다른 window들 보다 앞에 오도록 세팅!
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

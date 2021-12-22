@@ -73,7 +73,9 @@ class FaceCheckViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNavigationBar()
         configureCancelButton()
+        studentInfoLabel.text = viewModel.studentInfoLabelText
     }
     
     // MARK: - Selector
@@ -93,25 +95,27 @@ class FaceCheckViewController: UIViewController {
     
     // MARK: - Helpers
     
+    func configureNavigationBar() {
+        navigationItem.title = "학생 조회"
+    }
+    
     func configureUI() {
         view.backgroundColor = .white
-        
+
         inputCollectionView.delegate = self
         inputCollectionView.dataSource = self
         inputCollectionView.register(FaceCheckInputCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         view.addSubview(studentInfoLabel)
-        studentInfoLabel.text = viewModel.studentInfoLabelText
-        
         studentInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         studentInfoLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         studentInfoLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         studentInfoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        studentInfoLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        studentInfoLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         view.addSubview(inputCollectionView)
         inputCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        inputCollectionView.topAnchor.constraint(equalTo: studentInfoLabel.bottomAnchor, constant: 50).isActive = true
+        inputCollectionView.topAnchor.constraint(equalTo: studentInfoLabel.bottomAnchor, constant: 10).isActive = true
         inputCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100).isActive = true
         inputCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         inputCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
@@ -127,6 +131,11 @@ class FaceCheckViewController: UIViewController {
     func configureCancelButton() {
         cancelButton.isHidden = self.isCancelButtonHidden
         cancelButton.setTitle(cancelButtonTitle, for: .normal)
+    }
+    
+    func clearInputs() {
+        viewModel.clearInputs()
+        currentInputCellType = .grade
     }
 }
 
@@ -161,7 +170,9 @@ extension FaceCheckViewController: UICollectionViewDelegate {
             currentInputCellType = .number
         case .number:
             viewModel.number = indexPath.row + 1
-            studentInfoLabel.text = viewModel.studentInfoLabelText
+            guard let student = viewModel.student else { return }
+            let vc = StudentProfileViewController(student: student)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
@@ -173,7 +184,7 @@ extension FaceCheckViewController: UICollectionViewDelegateFlowLayout {
         switch currentInputCellType {
         case .grade:
             width = view.frame.width - 20
-            height = view.frame.height / 5
+            height = view.frame.height / 6
         case .classNumber:
             width = (view.frame.width - 20 - 10) / 3
             height = width

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class FaceCheckViewModel {
@@ -74,4 +75,25 @@ class FaceCheckViewModel {
         return 30 + grade! - classNumber!
     }
     
+    // MARK: - Student 객체 더미데이터
+    var student: Student? {
+        guard let grade = grade else { return nil }
+        guard let classNumber = classNumber else { return nil }
+        guard let number = number else { return nil }
+        
+        let dummyID = grade + classNumber + number
+        let dummyName = "김철수"
+        let dummyImage = UIImage(systemName: "person")
+        
+        let student = Student(id: dummyID, grade: grade, classNumber: classNumber, number: number, name: dummyName, profilePicture: dummyImage)
+        
+        return student
+    }
+    
+    // MARK: - 초기화 메소드
+    func clearInputs() {
+        grade = nil
+        classNumber = nil
+        number = nil
+    }
 }

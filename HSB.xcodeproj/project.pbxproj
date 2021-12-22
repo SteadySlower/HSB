@@ -7,25 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0628AB94276FF60600A9F604 /* StudentListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0628AB93276FF60600A9F604 /* StudentListCellViewModel.swift */; };
 		064D296027681A36000F4931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D295F27681A36000F4931 /* AppDelegate.swift */; };
 		064D296227681A36000F4931 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D296127681A36000F4931 /* SceneDelegate.swift */; };
-		064D296427681A36000F4931 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D296327681A36000F4931 /* ViewController.swift */; };
 		064D296727681A36000F4931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064D296527681A36000F4931 /* Main.storyboard */; };
 		064D296927681A37000F4931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 064D296827681A37000F4931 /* Assets.xcassets */; };
 		064D296C27681A37000F4931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064D296A27681A37000F4931 /* LaunchScreen.storyboard */; };
 		064D297527681B47000F4931 /* FaceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297427681B47000F4931 /* FaceCheckViewController.swift */; };
 		064D297B27681BC4000F4931 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297A27681BC3000F4931 /* Student.swift */; };
 		064D297D27681DCC000F4931 /* FaceCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297C27681DCC000F4931 /* FaceCheckViewModel.swift */; };
-		064D297F276821AE000F4931 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D297E276821AE000F4931 /* Error.swift */; };
 		064D298227682F7D000F4931 /* FaceCheckButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064D298127682F7D000F4931 /* FaceCheckButtonSet.swift */; };
 		065B7379276948C300953E4E /* FaceCheckInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7378276948C300953E4E /* FaceCheckInputCell.swift */; };
+		065B737D276B0BB100953E4E /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B737C276B0BB100953E4E /* StudentProfileViewController.swift */; };
+		065B737F276B167E00953E4E /* StudentProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B737E276B167E00953E4E /* StudentProfileViewModel.swift */; };
+		065B7381276C61B500953E4E /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7380276C61B400953E4E /* MainTabController.swift */; };
+		065B7383276C687F00953E4E /* StudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7382276C687F00953E4E /* StudentListViewController.swift */; };
+		065B7385276CCC3D00953E4E /* StudentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7384276CCC3D00953E4E /* StudentListViewModel.swift */; };
+		065B7387276CCD7500953E4E /* Guidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7386276CCD7500953E4E /* Guidance.swift */; };
+		065B7389276CD19A00953E4E /* StudentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7388276CD19A00953E4E /* StudentListCell.swift */; };
+		0692553B2773E8C9000818E6 /* StudentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0692553A2773E8C9000818E6 /* StudentService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0628AB93276FF60600A9F604 /* StudentListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListCellViewModel.swift; sourceTree = "<group>"; };
 		064D295C27681A36000F4931 /* HSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		064D295F27681A36000F4931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		064D296127681A36000F4931 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		064D296327681A36000F4931 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		064D296627681A36000F4931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		064D296827681A37000F4931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		064D296B27681A37000F4931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,9 +40,16 @@
 		064D297427681B47000F4931 /* FaceCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckViewController.swift; sourceTree = "<group>"; };
 		064D297A27681BC3000F4931 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		064D297C27681DCC000F4931 /* FaceCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckViewModel.swift; sourceTree = "<group>"; };
-		064D297E276821AE000F4931 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		064D298127682F7D000F4931 /* FaceCheckButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckButtonSet.swift; sourceTree = "<group>"; };
 		065B7378276948C300953E4E /* FaceCheckInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCheckInputCell.swift; sourceTree = "<group>"; };
+		065B737C276B0BB100953E4E /* StudentProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
+		065B737E276B167E00953E4E /* StudentProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewModel.swift; sourceTree = "<group>"; };
+		065B7380276C61B400953E4E /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		065B7382276C687F00953E4E /* StudentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListViewController.swift; sourceTree = "<group>"; };
+		065B7384276CCC3D00953E4E /* StudentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListViewModel.swift; sourceTree = "<group>"; };
+		065B7386276CCD7500953E4E /* Guidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guidance.swift; sourceTree = "<group>"; };
+		065B7388276CD19A00953E4E /* StudentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListCell.swift; sourceTree = "<group>"; };
+		0692553A2773E8C9000818E6 /* StudentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +89,6 @@
 				064D297327681AEB000F4931 /* Controller */,
 				064D295F27681A36000F4931 /* AppDelegate.swift */,
 				064D296127681A36000F4931 /* SceneDelegate.swift */,
-				064D296327681A36000F4931 /* ViewController.swift */,
 				064D296527681A36000F4931 /* Main.storyboard */,
 				064D296827681A37000F4931 /* Assets.xcassets */,
 				064D296A27681A37000F4931 /* LaunchScreen.storyboard */,
@@ -88,6 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				064D297427681B47000F4931 /* FaceCheckViewController.swift */,
+				065B737C276B0BB100953E4E /* StudentProfileViewController.swift */,
+				065B7380276C61B400953E4E /* MainTabController.swift */,
+				065B7382276C687F00953E4E /* StudentListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -96,6 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				064D297C27681DCC000F4931 /* FaceCheckViewModel.swift */,
+				065B737E276B167E00953E4E /* StudentProfileViewModel.swift */,
+				065B7384276CCC3D00953E4E /* StudentListViewModel.swift */,
+				0628AB93276FF60600A9F604 /* StudentListCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -105,6 +124,7 @@
 			children = (
 				064D298027682F6E000F4931 /* Buttons (deprecated) */,
 				065B7378276948C300953E4E /* FaceCheckInputCell.swift */,
+				065B7388276CD19A00953E4E /* StudentListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +132,7 @@
 		064D297827681BAA000F4931 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				0692553A2773E8C9000818E6 /* StudentService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -120,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				064D297A27681BC3000F4931 /* Student.swift */,
-				064D297E276821AE000F4931 /* Error.swift */,
+				065B7386276CCD7500953E4E /* Guidance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,11 +227,18 @@
 			files = (
 				064D297527681B47000F4931 /* FaceCheckViewController.swift in Sources */,
 				064D298227682F7D000F4931 /* FaceCheckButtonSet.swift in Sources */,
-				064D296427681A36000F4931 /* ViewController.swift in Sources */,
+				065B7385276CCC3D00953E4E /* StudentListViewModel.swift in Sources */,
 				064D296027681A36000F4931 /* AppDelegate.swift in Sources */,
+				065B7383276C687F00953E4E /* StudentListViewController.swift in Sources */,
+				065B737D276B0BB100953E4E /* StudentProfileViewController.swift in Sources */,
+				065B7387276CCD7500953E4E /* Guidance.swift in Sources */,
+				0692553B2773E8C9000818E6 /* StudentService.swift in Sources */,
+				0628AB94276FF60600A9F604 /* StudentListCellViewModel.swift in Sources */,
+				065B7389276CD19A00953E4E /* StudentListCell.swift in Sources */,
+				065B737F276B167E00953E4E /* StudentProfileViewModel.swift in Sources */,
 				064D297B27681BC4000F4931 /* Student.swift in Sources */,
 				064D297D27681DCC000F4931 /* FaceCheckViewModel.swift in Sources */,
-				064D297F276821AE000F4931 /* Error.swift in Sources */,
+				065B7381276C61B500953E4E /* MainTabController.swift in Sources */,
 				065B7379276948C300953E4E /* FaceCheckInputCell.swift in Sources */,
 				064D296227681A36000F4931 /* SceneDelegate.swift in Sources */,
 			);
