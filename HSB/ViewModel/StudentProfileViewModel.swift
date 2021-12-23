@@ -24,16 +24,6 @@ struct StudentProfileViewModel {
         return "\(student.name)"
     }
     
-    // MARK: - profileImage
-    
-    var profileImage: UIImage {
-        if let profileImage = student.profilePicture {
-            return profileImage
-        } else {
-            return UIImage(systemName: "person.fill.xmark")!
-        }
-    }
-    
     // MARK: - registerGuidance
     func registerGuidance(reason: GuidanceReason) {
         let guidance = Guidance(student: student, reason: reason)

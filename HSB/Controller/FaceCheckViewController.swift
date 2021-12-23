@@ -68,6 +68,17 @@ class FaceCheckViewController: UIViewController {
         }
     }
     
+    lazy var networkErrorAlert: UIAlertController = {
+        let alert = UIAlertController(title: "네트워크 에러", message: "네트워크 상태에 문제가 있어 서버에 접속할 수 없습니다.", preferredStyle: .alert)
+        
+        let retry = UIAlertAction(title: "재시도", style: .default) { [weak self] _ in
+            self?.inputCollectionView.reloadData()
+        }
+        
+        alert.addAction(retry)
+        return alert
+    }()
+    
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
@@ -104,6 +115,7 @@ class FaceCheckViewController: UIViewController {
 
         inputCollectionView.delegate = self
         inputCollectionView.dataSource = self
+        inputCollectionView.isScrollEnabled = true
         inputCollectionView.register(FaceCheckInputCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         view.addSubview(studentInfoLabel)
@@ -141,11 +153,19 @@ class FaceCheckViewController: UIViewController {
 
 extension FaceCheckViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var numOfCells: Int?
         switch currentInputCellType {
-        case .grade: return 3
-        case .classNumber: return viewModel.numOfClass
-        case .number: return viewModel.numOfStudent
+        case .grade: numOfCells = 3
+        case .classNumber: numOfCells = viewModel.numOfClassCells
+        case .number: numOfCells = viewModel.numOfStudentCells
         }
+        guard let numOfCells = numOfCells else {
+            present(networkErrorAlert, animated: true) {
+                self.viewModel.fetchNumberOfCells()
+            }
+            return 0
+        }
+        return numOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -170,9 +190,10 @@ extension FaceCheckViewController: UICollectionViewDelegate {
             currentInputCellType = .number
         case .number:
             viewModel.number = indexPath.row + 1
-            guard let student = viewModel.student else { return }
-            let vc = StudentProfileViewController(student: student)
-            navigationController?.pushViewController(vc, animated: true)
+            viewModel.fetchStudent { [weak self] student in
+                let vc = StudentProfileViewController(student: student)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

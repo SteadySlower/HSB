@@ -38,10 +38,6 @@ struct StudentListCellViewModel {
     // MARK: - profileImage
     
     lazy var profileImage: UIImage = {
-        if let image = guidance.student.profilePicture {
-            return image
-        } else {
-            return UIImage(systemName: "person.fill")!
-        }
+        return UIImage(systemName: "person.fill")!
     }()
 }

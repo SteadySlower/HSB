@@ -7,18 +7,20 @@
 
 import Foundation
 
-var dummyGuidances = [
-    Guidance(student: Student(id: 1, grade: 1, classNumber: 1, number: 1, name: "김철수", profilePicture: nil), reason: .wrongClothes),
-    Guidance(student: Student(id: 2, grade: 1, classNumber: 1, number: 2, name: "김영희", profilePicture: nil), reason: .noShoes),
-    Guidance(student: Student(id: 3, grade: 1, classNumber: 1, number: 3, name: "김영수", profilePicture: nil), reason: .trespassing),
-    Guidance(student: Student(id: 4, grade: 1, classNumber: 1, number: 4, name: "이철수", profilePicture: nil), reason: .noShoes),
-    Guidance(student: Student(id: 5, grade: 1, classNumber: 1, number: 5, name: "박철수", profilePicture: nil), reason: .noShoes),
-    Guidance(student: Student(id: 6, grade: 1, classNumber: 2, number: 1, name: "최영남", profilePicture: nil), reason: .noShoes),
-    Guidance(student: Student(id: 7, grade: 1, classNumber: 2, number: 2, name: "조철수", profilePicture: nil), reason: .noShoes),
-    Guidance(student: Student(id: 8, grade: 1, classNumber: 3, number: 1, name: "김철규", profilePicture: nil), reason: .noShoes),
-    Guidance(student: Student(id: 9, grade: 2, classNumber: 3, number: 2, name: "최철수", profilePicture: nil), reason: .wrongClothes),
-    Guidance(student: Student(id: 10, grade: 3, classNumber: 3, number: 1, name: "이영희", profilePicture: nil), reason: .others(detail: "길에 껌 뱉음"))
-]
+//var dummyGuidances = [
+//    Guidance(student: Student(grade: 1, classNumber: 1, number: 1, name: "김철수", profilprofilePictureURL: nil, reason: .wrongClothes),
+//    Guidance(student: Student(grade: 1, classNumber: 1, number: 2, name: "김영희", profilprofilePictureURL: nil), reason: .noShoes),
+//    Guidance(student: Student(grade: 1, classNumber: 1, number: 3, name: "김영수", profilprofilePictureURL: nil), reason: .trespassing),
+//    Guidance(student: Student(grade: 1, classNumber: 1, number: 4, name: "이철수", profilprofilePictureURL: nil), reason: .noShoes),
+//    Guidance(student: Student(grade: 1, classNumber: 1, number: 5, name: "박철수", profilprofilePictureURL: nil, reason: .noShoes),
+//    Guidance(student: Student(grade: 1, classNumber: 2, number: 1, name: "최영남", profilprofilePictureURL: nil), reason: .noShoes),
+//    Guidance(student: Student(grade: 1, classNumber: 2, number: 2, name: "조철수", profilprofilePictureURL: nil), reason: .noShoes),
+//    Guidance(student: Student(grade: 1, classNumber: 3, number: 1, name: "김철규", profilprofilePictureURL: nil), reason: .noShoes),
+//    Guidance(student: Student(grade: 2, classNumber: 3, number: 2, name: "최철수", profilprofilePictureURL: nil), reason: .wrongClothes),
+//    Guidance(student: Student(grade: 3, classNumber: 3, number: 1, name: "이영희", profilprofilePictureURL: nil), reason: .others(detail: "길에 껌 뱉음"))
+//]
+
+var dummyGuidances = [Guidance]()
 
 class StudentListViewModel {
     

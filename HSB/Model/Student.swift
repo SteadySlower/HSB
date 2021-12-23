@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import UIKit
 
-struct Student {
+struct Student: Codable {
     let id: Int
     let grade: Int
     let classNumber: Int
     let number: Int
     let name: String
-    let profilePicture: UIImage?
+    let profileImageURL: String?
 }

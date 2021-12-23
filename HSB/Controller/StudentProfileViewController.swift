@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class StudentProfileViewController: UIViewController {
     
@@ -29,7 +30,7 @@ class StudentProfileViewController: UIViewController {
     
     let profileImageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleToFill
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
     
@@ -89,6 +90,13 @@ class StudentProfileViewController: UIViewController {
         return alert
     }()
     
+    let imageLoadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.hidesWhenStopped = true
+        indicator.style = .large
+        return indicator
+    }()
+    
     // MARK: - Lifecycle
     
     init(student: Student) {
@@ -101,6 +109,7 @@ class StudentProfileViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         configureUI()
         configure()
     }
@@ -172,20 +181,33 @@ class StudentProfileViewController: UIViewController {
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         registerButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-        registerButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
+        registerButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 20).isActive = true
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
         
         view.addSubview(cancelButton)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         cancelButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-        cancelButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
+        cancelButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 20).isActive = true
         cancelButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+        
+        view.addSubview(imageLoadingIndicator)
+        imageLoadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        imageLoadingIndicator.centerXAnchor.constraint(equalTo: profileImageView.centerXAnchor).isActive = true
+        imageLoadingIndicator.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
     }
     
     func configure() {
         infoLabel.text = viewModel.infoLabelText
         nameLabel.text = viewModel.nameLabelText
-        profileImageView.image = viewModel.profileImage
+        guard let urlString = viewModel.student.profileImageURL else {
+            profileImageView.image = NO_PROFILE_IMAGE
+            return
+        }
+        imageLoadingIndicator.startAnimating()
+        let url = URL(string: urlString)
+        profileImageView.kf.setImage(with: url, options: [.memoryCacheExpiration(.seconds(0)), .cacheMemoryOnly]) { [weak self] _ in
+            self?.imageLoadingIndicator.stopAnimating()
+        }
     }
 }

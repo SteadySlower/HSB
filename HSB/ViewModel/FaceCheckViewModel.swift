@@ -8,12 +8,17 @@
 import Foundation
 import UIKit
 
-
 class FaceCheckViewModel {
     
     var grade: Int?
     var classNumber: Int?
     var number: Int?
+    
+    // MARK: - LifeCycle
+    
+    init() {
+        self.fetchNumberOfCells()
+    }
     
     // MARK: - StudentInfoLabelText
     
@@ -60,34 +65,41 @@ class FaceCheckViewModel {
         }
     }
     
-    // MARK: - cellNumberdummyData
+    // MARK: - cellNumberData
     
-    var numOfClass: Int {
-        switch grade {
-        case 1: return 10
-        case 2: return 12
-        case 3: return 9
-        default: return 0
+    private var _numOfClasses: [Int: Int]?
+    
+    private var _numOfStudents: [Int: [Int: Int]]?
+    
+    func fetchNumberOfCells() {
+        StudentService.shared.fetchSchoolStatus { [weak self] status in
+            self?._numOfClasses = status.numOfClasses
+            self?._numOfStudents = status.numOfStudents
         }
     }
     
-    var numOfStudent: Int {
-        return 30 + grade! - classNumber!
+    var numOfClassCells: Int? {
+        guard let _numOfClasses = _numOfClasses else { return nil }
+        guard let grade = grade else { return nil }
+        return _numOfClasses[grade]!
     }
     
-    // MARK: - Student 객체 더미데이터
-    var student: Student? {
+    var numOfStudentCells: Int? {
+        guard let _numOfStudents = _numOfStudents else { return nil }
         guard let grade = grade else { return nil }
         guard let classNumber = classNumber else { return nil }
-        guard let number = number else { return nil }
+        return _numOfStudents[grade]![classNumber]!
+    }
+    
+    // MARK: - 서버에서 Student 객체 가져오기
+    func fetchStudent(completionHandler: @escaping (Student) -> Void) {
+        guard let grade = grade else { return }
+        guard let classNumber = classNumber else { return }
+        guard let number = number else { return }
         
-        let dummyID = grade + classNumber + number
-        let dummyName = "김철수"
-        let dummyImage = UIImage(systemName: "person")
-        
-        let student = Student(id: dummyID, grade: grade, classNumber: classNumber, number: number, name: dummyName, profilePicture: dummyImage)
-        
-        return student
+        StudentService.shared.fetchStudent(grade: grade, classNumber: classNumber, number: number) { student in
+            completionHandler(student)
+        }
     }
     
     // MARK: - 초기화 메소드
