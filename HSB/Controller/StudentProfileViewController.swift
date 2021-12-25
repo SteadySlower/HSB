@@ -137,12 +137,10 @@ class StudentProfileViewController: UIViewController {
                 self.present(self.otherReasonAlert, animated: true, completion: nil)
                 return
             } else {
-                self.viewModel.registerGuidance(reason: reason)
-                cancelButtonTapped()
+                self.viewModel.registerGuidance(reason: reason, completionHandler: showRegisterResult(guidance:))
             }
         default:
-            self.viewModel.registerGuidance(reason: reason)
-            cancelButtonTapped()
+            self.viewModel.registerGuidance(reason: reason, completionHandler: showRegisterResult(guidance:))
         }
     }
     
@@ -209,5 +207,15 @@ class StudentProfileViewController: UIViewController {
         profileImageView.kf.setImage(with: url, options: [.memoryCacheExpiration(.seconds(0)), .cacheMemoryOnly]) { [weak self] _ in
             self?.imageLoadingIndicator.stopAnimating()
         }
+    }
+    
+    func showRegisterResult(guidance: Guidance) {
+        let alert = UIAlertController(title: "등록 완료", message: nil, preferredStyle: .alert)
+        alert.message = viewModel.guidanceRegistrationMessage(guidance: guidance)
+        let ok = UIAlertAction(title: "OK", style: .default) { _ in
+            alert.dismiss(animated: true, completion: self.cancelButtonTapped)
+        }
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
     }
 }

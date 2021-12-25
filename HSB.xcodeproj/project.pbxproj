@@ -30,6 +30,7 @@
 		069255412774393C000818E6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 069255402774393C000818E6 /* Kingfisher */; };
 		0692554327744544000818E6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0692554227744544000818E6 /* Utilities.swift */; };
 		069255462774478C000818E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069255452774478C000818E6 /* Constants.swift */; };
+		06CB13422775A4DB0093B11F /* GuidanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB13412775A4DB0093B11F /* GuidanceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		0692553A2773E8C9000818E6 /* StudentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentService.swift; sourceTree = "<group>"; };
 		0692554227744544000818E6 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		069255452774478C000818E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		06CB13412775A4DB0093B11F /* GuidanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				0692553A2773E8C9000818E6 /* StudentService.swift */,
+				06CB13412775A4DB0093B11F /* GuidanceService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				065B7389276CD19A00953E4E /* StudentListCell.swift in Sources */,
 				065B737F276B167E00953E4E /* StudentProfileViewModel.swift in Sources */,
 				064D297B27681BC4000F4931 /* Student.swift in Sources */,
+				06CB13422775A4DB0093B11F /* GuidanceService.swift in Sources */,
 				064D297D27681DCC000F4931 /* FaceCheckViewModel.swift in Sources */,
 				065B7381276C61B500953E4E /* MainTabController.swift in Sources */,
 				065B7379276948C300953E4E /* FaceCheckInputCell.swift in Sources */,
