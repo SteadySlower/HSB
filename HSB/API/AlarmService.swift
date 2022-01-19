@@ -26,14 +26,18 @@ struct AlarmService {
             notiContents.title = "종례 시간 알림"
             notiContents.sound = UNNotificationSound.default
             notiContents.subtitle = "오늘 생활지도 학생은 \(numOfGuidances)명입니다."
-
-            let notiTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+            
+            let dateComponents = Utilities().getTodayAlarmDateComponents()
+            
+            guard let dateComponents = dateComponents else { return }
+            
+            let notiTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
 
             let request = UNNotificationRequest(identifier: "teacherAlarm", content: notiContents, trigger: notiTrigger)
 
             notiCenter.add(request) { err in
                 if let err = err {
-                    print("DEBUG: Failed to addAlarm \(err)")
+                    print("DEBUG: Failed to add alarm \(err)")
                 }
             }
         }
