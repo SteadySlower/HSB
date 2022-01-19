@@ -37,4 +37,20 @@ class Utilities {
         
         return dateComponents
     }
+    
+    // string으로 date 객체 만들기
+    func makeDateFromString(dateString: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: dateString)
+        return date!
+    }
+    
+    // date를 string으로 바꾸기
+    func getTodayDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = Date()
+        return dateFormatter.string(from: date)
+    }
 }

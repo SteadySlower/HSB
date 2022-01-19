@@ -8,24 +8,13 @@
 import Foundation
 import Alamofire
 
-struct GuidanceRawData: Codable {
-    let studentID: Int
-    let grade: Int
-    let classNumber: Int
-    let number: Int
-    let name: String
-    let profileURLImage: String?
-    let guidanceID: Int
-    let reason: String
-    let detail: String?
-}
-
 class GuidanceService {
     static let shared = GuidanceService()
     
     func uploadGuidance(studentID: Int, reason: GuidanceReason, completionHandler: @escaping (Guidance) -> Void) {
         var params: [String: String] = ["studentID": "\(studentID)"]
         params["reason"] = reason.description
+        params["date"] = Utilities().getTodayDateString()
         
         if case .others(let detail) = reason {
             if let detail = detail {

@@ -32,6 +32,7 @@
 		069255462774478C000818E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069255452774478C000818E6 /* Constants.swift */; };
 		06CB13422775A4DB0093B11F /* GuidanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB13412775A4DB0093B11F /* GuidanceService.swift */; };
 		06F686372797E75A00E2CBC8 /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F686362797E75A00E2CBC8 /* AlarmService.swift */; };
+		06F686392798D41C00E2CBC8 /* GuidanceManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F686382798D41C00E2CBC8 /* GuidanceManageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		069255452774478C000818E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		06CB13412775A4DB0093B11F /* GuidanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceService.swift; sourceTree = "<group>"; };
 		06F686362797E75A00E2CBC8 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
+		06F686382798D41C00E2CBC8 /* GuidanceManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				065B737C276B0BB100953E4E /* StudentProfileViewController.swift */,
 				065B7380276C61B400953E4E /* MainTabController.swift */,
 				065B7382276C687F00953E4E /* StudentListViewController.swift */,
+				06F686382798D41C00E2CBC8 /* GuidanceManageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				064D296027681A36000F4931 /* AppDelegate.swift in Sources */,
 				065B7383276C687F00953E4E /* StudentListViewController.swift in Sources */,
 				065B737D276B0BB100953E4E /* StudentProfileViewController.swift in Sources */,
+				06F686392798D41C00E2CBC8 /* GuidanceManageController.swift in Sources */,
 				0692554327744544000818E6 /* Utilities.swift in Sources */,
 				065B7387276CCD7500953E4E /* Guidance.swift in Sources */,
 				0692553B2773E8C9000818E6 /* StudentService.swift in Sources */,

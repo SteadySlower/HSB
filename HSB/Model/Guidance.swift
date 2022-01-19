@@ -7,15 +7,40 @@
 
 import Foundation
 
+struct GuidanceRawData: Codable {
+    let studentID: Int
+    let grade: Int
+    let classNumber: Int
+    let number: Int
+    let name: String
+    let profileURLImage: String?
+    let guidanceID: Int
+    let reason: String
+    let detail: String?
+    let date: String
+    let status: String
+}
+
 struct Guidance {
     let id: Int
     let student: Student
     let reason: GuidanceReason
+    let date: Date
+    let isDelayed: Bool
+    
     
     init(rawData: GuidanceRawData) {
         self.id = rawData.guidanceID
         self.student = Student(from: rawData)
         self.reason = GuidanceReason(from: rawData)
+        
+        self.date = Utilities().makeDateFromString(dateString: rawData.date)
+        
+        switch rawData.status {
+        case "VALID": self.isDelayed = false
+        case "DELAYED": self.isDelayed = true
+        default: self.isDelayed = false
+        }
     }
 }
 
