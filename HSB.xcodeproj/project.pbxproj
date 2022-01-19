@@ -31,6 +31,7 @@
 		0692554327744544000818E6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0692554227744544000818E6 /* Utilities.swift */; };
 		069255462774478C000818E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069255452774478C000818E6 /* Constants.swift */; };
 		06CB13422775A4DB0093B11F /* GuidanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB13412775A4DB0093B11F /* GuidanceService.swift */; };
+		06F686372797E75A00E2CBC8 /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F686362797E75A00E2CBC8 /* AlarmService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		0692554227744544000818E6 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		069255452774478C000818E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		06CB13412775A4DB0093B11F /* GuidanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceService.swift; sourceTree = "<group>"; };
+		06F686362797E75A00E2CBC8 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		064D297827681BAA000F4931 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				06F686362797E75A00E2CBC8 /* AlarmService.swift */,
 				0692553A2773E8C9000818E6 /* StudentService.swift */,
 				06CB13412775A4DB0093B11F /* GuidanceService.swift */,
 			);
@@ -263,6 +266,7 @@
 				0692554327744544000818E6 /* Utilities.swift in Sources */,
 				065B7387276CCD7500953E4E /* Guidance.swift in Sources */,
 				0692553B2773E8C9000818E6 /* StudentService.swift in Sources */,
+				06F686372797E75A00E2CBC8 /* AlarmService.swift in Sources */,
 				0628AB94276FF60600A9F604 /* StudentListCellViewModel.swift in Sources */,
 				065B7389276CD19A00953E4E /* StudentListCell.swift in Sources */,
 				065B737F276B167E00953E4E /* StudentProfileViewModel.swift in Sources */,

@@ -9,38 +9,15 @@ import UIKit
 
 fileprivate let reuseIdentifier = "StudentListCell"
 
-enum StudentListFilter: Int, CaseIterable {
-    case all = 0
-    case myClass
-    case myGrade
-    
-    var description: String {
-        switch self {
-        case .all: return "전체"
-        case .myClass: return "우리 반"
-        case .myGrade: return "우리 학년"
-        }
-    }
-    
-    static let segmentItems = StudentListFilter.allCases.map({ filter in filter.description })
-}
-
 class StudentListViewController: UIViewController {
     
     // MARK: - Properties
     
     var viewModel = StudentListViewModel()
     
-    var currentStudentListFilter = StudentListFilter.all {
-        didSet {
-            viewModel.changeFilter(to: currentStudentListFilter)
-            tableView.reloadData()
-        }
-    }
-    
     lazy var filteringSegmentControl: UISegmentedControl = {
-        let sg = UISegmentedControl(items: StudentListFilter.segmentItems)
-        sg.selectedSegmentIndex = self.currentStudentListFilter.rawValue
+        let sg = UISegmentedControl(items: GuidanceListFilter.segmentItems)
+        sg.selectedSegmentIndex = self.viewModel.filter.rawValue
         sg.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)], for: .normal)
         sg.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)], for: .selected)
         sg.addTarget(self, action: #selector(segmentValueChanged(sender:)), for: .valueChanged)
@@ -57,18 +34,21 @@ class StudentListViewController: UIViewController {
         configureUI()
         configureTableView()
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadTableView()
+        viewModel.resetGuidances()
+        tableView.reloadData()
     }
     
     // MARK: - Selectors
     
     @objc func segmentValueChanged(sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
-        guard let newFilter = StudentListFilter(rawValue: selectedIndex) else { return }
-        currentStudentListFilter = newFilter
+        guard let newFilter = GuidanceListFilter(rawValue: selectedIndex) else { return }
+        viewModel.filter = newFilter
+        tableView.reloadData()
     }
     
     // MARK: - Helpers
@@ -98,10 +78,18 @@ class StudentListViewController: UIViewController {
         tableView.separatorStyle = .none
     }
     
-    func reloadTableView() {
-        viewModel.resetGuidances()
-        viewModel.changeFilter(to: currentStudentListFilter)
-        tableView.reloadData()
+    
+    func showDeleteAlert(guidance: Guidance) {
+        let alert = UIAlertController(title: "정말 삭제하시겠습니까?", message: viewModel.guidanceDeletionMessage(guidance: guidance), preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let delete = UIAlertAction(title: "삭제", style: .destructive) { _ in
+            self.viewModel.deleteGuidance(guidance) {
+                self.tableView.reloadData()
+            }
+        }
+        alert.addAction(cancel)
+        alert.addAction(delete)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -135,7 +123,6 @@ extension StudentListViewController: UITableViewDelegate {
 extension StudentListViewController: StudentListCellDelegate {
     func deleteButtonTapped(in cell: StudentListCell) {
         guard let guidance = cell.guidance else { return }
-        viewModel.deleteGuidance(guidance)
-        reloadTableView()
+        showDeleteAlert(guidance: guidance)
     }
 }

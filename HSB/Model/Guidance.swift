@@ -48,3 +48,19 @@ enum GuidanceReason: CaseIterable {
         }
     }
 }
+
+enum GuidanceListFilter: Int, CaseIterable {
+    case all = 0
+    case myClass
+    case myGrade
+    
+    var description: String {
+        switch self {
+        case .all: return "전체"
+        case .myClass: return "우리 반"
+        case .myGrade: return "우리 학년"
+        }
+    }
+    
+    static let segmentItems = GuidanceListFilter.allCases.map({ filter in filter.description })
+}

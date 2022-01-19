@@ -7,33 +7,57 @@
 
 import Foundation
 
-//var dummyGuidances = [
-//    Guidance(student: Student(grade: 1, classNumber: 1, number: 1, name: "김철수", profilprofilePictureURL: nil, reason: .wrongClothes),
-//    Guidance(student: Student(grade: 1, classNumber: 1, number: 2, name: "김영희", profilprofilePictureURL: nil), reason: .noShoes),
-//    Guidance(student: Student(grade: 1, classNumber: 1, number: 3, name: "김영수", profilprofilePictureURL: nil), reason: .trespassing),
-//    Guidance(student: Student(grade: 1, classNumber: 1, number: 4, name: "이철수", profilprofilePictureURL: nil), reason: .noShoes),
-//    Guidance(student: Student(grade: 1, classNumber: 1, number: 5, name: "박철수", profilprofilePictureURL: nil, reason: .noShoes),
-//    Guidance(student: Student(grade: 1, classNumber: 2, number: 1, name: "최영남", profilprofilePictureURL: nil), reason: .noShoes),
-//    Guidance(student: Student(grade: 1, classNumber: 2, number: 2, name: "조철수", profilprofilePictureURL: nil), reason: .noShoes),
-//    Guidance(student: Student(grade: 1, classNumber: 3, number: 1, name: "김철규", profilprofilePictureURL: nil), reason: .noShoes),
-//    Guidance(student: Student(grade: 2, classNumber: 3, number: 2, name: "최철수", profilprofilePictureURL: nil), reason: .wrongClothes),
-//    Guidance(student: Student(grade: 3, classNumber: 3, number: 1, name: "이영희", profilprofilePictureURL: nil), reason: .others(detail: "길에 껌 뱉음"))
-//]
-
-var dummyGuidances = [Guidance]()
-
 class StudentListViewModel {
     
-    // TODO: - get data from server
-    private var _guidances = dummyGuidances
-    
+    private var _guidances: [Guidance] {
+        didSet {
+            filterGuidances()
+        }
+    }
+        
     lazy var guidances: [Guidance] = _guidances
     
-    func resetGuidances() {
-        self._guidances = dummyGuidances
+    var filter: GuidanceListFilter = .all {
+        didSet {
+            filterGuidances()
+        }
     }
     
-    func changeFilter(to filter: StudentListFilter) {
+    func guidanceDeletionMessage(guidance: Guidance) -> String {
+        let student = guidance.student
+        let studentString = "\(student.grade)학년 \(student.classNumber)반 \(student.number)번 \(student.name)"
+        let reason = guidance.reason
+        let reasonString: String = {
+            if case .others(let detail) = reason {
+                return "\(reason.description)(\(detail ?? ""))"
+            } else {
+                return "\(reason.description)"
+            }
+        }()
+        return "\(studentString)\n\(reasonString)"
+    }
+    
+    init() {
+        self._guidances = [Guidance]()
+        GuidanceService.shared.fetchGuidances { [weak self] guidances in
+            self?._guidances = guidances
+        }
+    }
+    
+    func resetGuidances() {
+        GuidanceService.shared.fetchGuidances { [weak self] guidances in
+            self?._guidances = guidances
+        }
+    }
+    
+    func deleteGuidance(_ guidance: Guidance, completionHandler: @escaping () -> Void) {
+        GuidanceService.shared.deleteGuidance(guidanceID: guidance.id) { [weak self] guidances in
+            self?._guidances = guidances
+            completionHandler()
+        }
+    }
+    
+    private func filterGuidances() {
         switch filter {
         case .all:
             self.guidances = _guidances
@@ -45,13 +69,6 @@ class StudentListViewModel {
             self.guidances = _guidances.filter { guidance in
                 guidance.student.grade == 1 && guidance.student.classNumber == 1
             }
-        }
-    }
-    
-    func deleteGuidance(_ guidance: Guidance) {
-        let toDeleteID = guidance.id
-        dummyGuidances = dummyGuidances.filter { guidance in
-            guidance.id != toDeleteID
         }
     }
 }

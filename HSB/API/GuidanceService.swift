@@ -41,4 +41,28 @@ class GuidanceService {
             completionHandler(guidance)
         }
     }
+    
+    func fetchGuidances(completionHandler: @escaping ([Guidance]) -> Void) {
+        AF.request("\(SERVER_BASE_URL)/guidances").responseDecodable(of: Response<[GuidanceRawData]>.self) { data in
+            guard let response = data.value else { return }
+            guard response.isSuccess == true else { return }
+            guard let rawdata = response.result else { return }
+            let guidances = rawdata.map { rawData in
+                return Guidance(rawData: rawData)
+            }
+            completionHandler(guidances)
+        }
+    }
+    
+    func deleteGuidance(guidanceID: Int, completionHandler: @escaping ([Guidance]) -> Void) {
+        AF.request("\(SERVER_BASE_URL)/guidances/\(guidanceID)", method: .delete).responseDecodable(of: Response<[GuidanceRawData]>.self) { data in
+            guard let response = data.value else { return }
+            guard response.isSuccess == true else { return }
+            guard let rawdata = response.result else { return }
+            let guidances = rawdata.map { rawData in
+                return Guidance(rawData: rawData)
+            }
+            completionHandler(guidances)
+        }
+    }
 }
