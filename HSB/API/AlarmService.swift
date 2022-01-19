@@ -18,25 +18,23 @@ struct AlarmService {
         }
     }
     
-    private func getAlarmMessage() -> UNMutableNotificationContent {
-        let notiContents = UNMutableNotificationContent()
-        notiContents.title = "종례 시간 알림"
-        notiContents.sound = UNNotificationSound.default
-        notiContents.subtitle = "오늘 생활지도 학생은 3명입니다."
-        return notiContents
-    }
-    
     private func addAlarm() {
-        let notiCenter = UNUserNotificationCenter.current()
-        let notiContents = getAlarmMessage()
+        GuidanceService.shared.fetchGuidanceNumOfHR { numOfGuidances in
+            let notiCenter = UNUserNotificationCenter.current()
+            
+            let notiContents = UNMutableNotificationContent()
+            notiContents.title = "종례 시간 알림"
+            notiContents.sound = UNNotificationSound.default
+            notiContents.subtitle = "오늘 생활지도 학생은 \(numOfGuidances)명입니다."
 
-        let notiTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let notiTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
 
-        let request = UNNotificationRequest(identifier: "teacherAlarm", content: notiContents, trigger: notiTrigger)
+            let request = UNNotificationRequest(identifier: "teacherAlarm", content: notiContents, trigger: notiTrigger)
 
-        notiCenter.add(request) { err in
-            if let err = err {
-                print("DEBUG: Failed to addAlarm \(err)")
+            notiCenter.add(request) { err in
+                if let err = err {
+                    print("DEBUG: Failed to addAlarm \(err)")
+                }
             }
         }
     }

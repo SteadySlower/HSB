@@ -65,4 +65,20 @@ class GuidanceService {
             completionHandler(guidances)
         }
     }
+    
+    func fetchGuidanceNumOfHR(completionHandler: @escaping (Int) -> Void) {
+        AF.request("\(SERVER_BASE_URL)/guidances").responseDecodable(of: Response<[GuidanceRawData]>.self) { data in
+            guard let response = data.value else { return }
+            guard response.isSuccess == true else { return }
+            guard let rawdata = response.result else { return }
+            let guidances = rawdata.map { rawData in
+                return Guidance(rawData: rawData)
+            }
+            let guidanceCount = guidances.filter { guidance in
+                guidance.student.grade == 1 && guidance.student.classNumber == 1
+            }.count
+            
+            completionHandler(guidanceCount)
+        }
+    }
 }
