@@ -70,4 +70,27 @@ class GuidanceService {
             completionHandler(guidanceCount)
         }
     }
+    
+    func fetchGuidancesToManageToday(completionHandler: @escaping ([Guidance]) -> Void) {
+        AF.request("\(SERVER_BASE_URL)/guidances").responseDecodable(of: Response<[GuidanceRawData]>.self) { data in
+            guard let response = data.value else { return }
+            guard response.isSuccess == true else { return }
+            guard let rawdata = response.result else { return }
+            
+            let guidances = rawdata.map { rawData in
+                return Guidance(rawData: rawData)
+            }
+            
+            // 봉사 일정이 오늘 + 이전의 것만 filtering
+            let calendar = Calendar.current
+            let today = Date()
+            
+            let todayGuidances = guidances.filter { guidance in
+                let date = guidance.date
+                return calendar.compare(date, to: today, toGranularity: .day) != .orderedDescending
+            }
+            
+            completionHandler(todayGuidances)
+        }
+    }
 }
