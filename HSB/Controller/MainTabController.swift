@@ -37,7 +37,10 @@ class MainTabController: UITabBarController {
         let studentList = StudentListViewController()
         let nav2 = createNavigationController(image: UIImage(systemName: "doc.text"), title: "지도 명단", rootViewController: studentList)
         
-        self.viewControllers = [nav1, nav2]
+        let guidanceManage = GuidanceManageController()
+        let nav3 = createNavigationController(image: UIImage(systemName: "pencil"), title: "봉사 지도", rootViewController: guidanceManage)
+        
+        self.viewControllers = [nav1, nav2, nav3]
     }
     
     func createNavigationController(image: UIImage?, title: String, rootViewController: UIViewController) -> UINavigationController {

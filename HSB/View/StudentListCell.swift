@@ -46,9 +46,11 @@ class StudentListCell: UITableViewCell {
     
     let deleteButton: UIButton = {
         let button = UIButton()
-        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 30).isActive = true
         button.setImage(UIImage(systemName: "trash"), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
         button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -102,8 +104,8 @@ class StudentListCell: UITableViewCell {
         
         contentView.addSubview(deleteButton)
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        deleteButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
-        deleteButton.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        deleteButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        deleteButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
         
     }
     

@@ -33,6 +33,9 @@
 		06CB13422775A4DB0093B11F /* GuidanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB13412775A4DB0093B11F /* GuidanceService.swift */; };
 		06F686372797E75A00E2CBC8 /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F686362797E75A00E2CBC8 /* AlarmService.swift */; };
 		06F686392798D41C00E2CBC8 /* GuidanceManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F686382798D41C00E2CBC8 /* GuidanceManageController.swift */; };
+		06F6863B2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6863A2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift */; };
+		06F6863D27994ADA00E2CBC8 /* GuidanceManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6863C27994ADA00E2CBC8 /* GuidanceManageCell.swift */; };
+		06F6863F2799719F00E2CBC8 /* GuidanceManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6863E2799719F00E2CBC8 /* GuidanceManageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		06CB13412775A4DB0093B11F /* GuidanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceService.swift; sourceTree = "<group>"; };
 		06F686362797E75A00E2CBC8 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 		06F686382798D41C00E2CBC8 /* GuidanceManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageController.swift; sourceTree = "<group>"; };
+		06F6863A2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageCellViewModel.swift; sourceTree = "<group>"; };
+		06F6863C27994ADA00E2CBC8 /* GuidanceManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageCell.swift; sourceTree = "<group>"; };
+		06F6863E2799719F00E2CBC8 /* GuidanceManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +102,9 @@
 		064D295E27681A36000F4931 /* HSB */ = {
 			isa = PBXGroup;
 			children = (
-				069255442774455C000818E6 /* Util */,
 				064D297927681BB2000F4931 /* Model */,
 				064D297827681BAA000F4931 /* API */,
+				069255442774455C000818E6 /* Util */,
 				064D297727681B9F000F4931 /* View */,
 				064D297627681B96000F4931 /* ViewModel */,
 				064D297327681AEB000F4931 /* Controller */,
@@ -131,6 +137,8 @@
 				065B737E276B167E00953E4E /* StudentProfileViewModel.swift */,
 				065B7384276CCC3D00953E4E /* StudentListViewModel.swift */,
 				0628AB93276FF60600A9F604 /* StudentListCellViewModel.swift */,
+				06F6863A2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift */,
+				06F6863E2799719F00E2CBC8 /* GuidanceManageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 			children = (
 				064D298027682F6E000F4931 /* Buttons (deprecated) */,
 				065B7378276948C300953E4E /* FaceCheckInputCell.swift */,
+				06F6863C27994ADA00E2CBC8 /* GuidanceManageCell.swift */,
 				065B7388276CD19A00953E4E /* StudentListCell.swift */,
 			);
 			path = View;
@@ -263,6 +272,7 @@
 				064D297527681B47000F4931 /* FaceCheckViewController.swift in Sources */,
 				064D298227682F7D000F4931 /* FaceCheckButtonSet.swift in Sources */,
 				065B7385276CCC3D00953E4E /* StudentListViewModel.swift in Sources */,
+				06F6863B2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift in Sources */,
 				064D296027681A36000F4931 /* AppDelegate.swift in Sources */,
 				065B7383276C687F00953E4E /* StudentListViewController.swift in Sources */,
 				065B737D276B0BB100953E4E /* StudentProfileViewController.swift in Sources */,
@@ -272,8 +282,10 @@
 				0692553B2773E8C9000818E6 /* StudentService.swift in Sources */,
 				06F686372797E75A00E2CBC8 /* AlarmService.swift in Sources */,
 				0628AB94276FF60600A9F604 /* StudentListCellViewModel.swift in Sources */,
+				06F6863F2799719F00E2CBC8 /* GuidanceManageViewModel.swift in Sources */,
 				065B7389276CD19A00953E4E /* StudentListCell.swift in Sources */,
 				065B737F276B167E00953E4E /* StudentProfileViewModel.swift in Sources */,
+				06F6863D27994ADA00E2CBC8 /* GuidanceManageCell.swift in Sources */,
 				064D297B27681BC4000F4931 /* Student.swift in Sources */,
 				06CB13422775A4DB0093B11F /* GuidanceService.swift in Sources */,
 				064D297D27681DCC000F4931 /* FaceCheckViewModel.swift in Sources */,

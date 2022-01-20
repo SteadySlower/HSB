@@ -89,3 +89,19 @@ enum GuidanceListFilter: Int, CaseIterable {
     
     static let segmentItems = GuidanceListFilter.allCases.map({ filter in filter.description })
 }
+
+enum GuidanceManageListFilter: Int, CaseIterable {
+    case first = 0
+    case second
+    case third
+    
+    var description: String {
+        switch self {
+        case .first: return "1학년"
+        case .second: return "2학년"
+        case .third: return "3학년"
+        }
+    }
+    
+    static let segmentItems = GuidanceManageListFilter.allCases.map({ filter in filter.description })
+}
