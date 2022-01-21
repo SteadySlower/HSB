@@ -93,4 +93,52 @@ class GuidanceService {
             completionHandler(todayGuidances)
         }
     }
+    
+    func completeGuidance(guidanceID: Int, completionHandler: @escaping ([Guidance]) -> Void) {
+        
+        let params: [String: String] = ["guidanceID": "\(guidanceID)"]
+        
+        AF.request("\(SERVER_BASE_URL)/guidances/completion", method: .patch, parameters: params, encoder: JSONParameterEncoder.default).responseDecodable(of: Response<[GuidanceRawData]>.self) { data in
+            guard let response = data.value else { return }
+            guard response.isSuccess == true else { return }
+            guard let rawdata = response.result else { return }
+            let guidances = rawdata.map { rawData in
+                return Guidance(rawData: rawData)
+            }
+            
+            let calendar = Calendar.current
+            let today = Date()
+            
+            let todayGuidances = guidances.filter { guidance in
+                let date = guidance.date
+                return calendar.compare(date, to: today, toGranularity: .day) != .orderedDescending
+            }
+            
+            completionHandler(todayGuidances)
+        }
+    }
+    
+    func delayGuidance(guidanceID: Int, date: Date, completionHandler: @escaping ([Guidance]) -> Void) {
+        var params: [String: String] = ["guidanceID": "\(guidanceID)"]
+        params["date"] = Utilities().makeDateToString(date: date)
+        
+        AF.request("\(SERVER_BASE_URL)/guidances/delay", method: .patch, parameters: params, encoder: JSONParameterEncoder.default).responseDecodable(of: Response<[GuidanceRawData]>.self) { data in
+            guard let response = data.value else { return }
+            guard response.isSuccess == true else { return }
+            guard let rawdata = response.result else { return }
+            let guidances = rawdata.map { rawData in
+                return Guidance(rawData: rawData)
+            }
+            
+            let calendar = Calendar.current
+            let today = Date()
+            
+            let todayGuidances = guidances.filter { guidance in
+                let date = guidance.date
+                return calendar.compare(date, to: today, toGranularity: .day) != .orderedDescending
+            }
+            
+            completionHandler(todayGuidances)
+        }
+    }
 }

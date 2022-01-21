@@ -46,11 +46,19 @@ class Utilities {
         return date!
     }
     
-    // date를 string으로 바꾸기
+    // 오늘 date를 string으로 바꾸기
     func getTodayDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = Date()
         return dateFormatter.string(from: date)
+    }
+    
+    // date를 String으로 바꾸기
+    func makeDateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
     }
 }
