@@ -36,6 +36,7 @@
 		06F6863B2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6863A2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift */; };
 		06F6863D27994ADA00E2CBC8 /* GuidanceManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6863C27994ADA00E2CBC8 /* GuidanceManageCell.swift */; };
 		06F6863F2799719F00E2CBC8 /* GuidanceManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6863E2799719F00E2CBC8 /* GuidanceManageViewModel.swift */; };
+		06F68641279A9E2200E2CBC8 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F68640279A9E2200E2CBC8 /* DatePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		06F6863A2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageCellViewModel.swift; sourceTree = "<group>"; };
 		06F6863C27994ADA00E2CBC8 /* GuidanceManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageCell.swift; sourceTree = "<group>"; };
 		06F6863E2799719F00E2CBC8 /* GuidanceManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageViewModel.swift; sourceTree = "<group>"; };
+		06F68640279A9E2200E2CBC8 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				065B7380276C61B400953E4E /* MainTabController.swift */,
 				065B7382276C687F00953E4E /* StudentListViewController.swift */,
 				06F686382798D41C00E2CBC8 /* GuidanceManageController.swift */,
+				06F68640279A9E2200E2CBC8 /* DatePickerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				064D297527681B47000F4931 /* FaceCheckViewController.swift in Sources */,
+				06F68641279A9E2200E2CBC8 /* DatePickerViewController.swift in Sources */,
 				064D298227682F7D000F4931 /* FaceCheckButtonSet.swift in Sources */,
 				065B7385276CCC3D00953E4E /* StudentListViewModel.swift in Sources */,
 				06F6863B2798D53F00E2CBC8 /* GuidanceManageCellViewModel.swift in Sources */,

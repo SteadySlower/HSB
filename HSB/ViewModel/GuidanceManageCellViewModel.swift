@@ -24,7 +24,11 @@ struct GuidanceManageCellViewModel {
     private var scheduleString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM월 dd일"
-        return dateFormatter.string(from: guidance.date)
+        var scheduleString = dateFormatter.string(from: guidance.date)
+        if guidance.isDelayed == true {
+            scheduleString.append(contentsOf: " (연기)")
+        }
+        return scheduleString
     }
     
     // 봉사 일정이 지났다면 일정이 빨간색으로 출력되도록 함
@@ -42,8 +46,8 @@ struct GuidanceManageCellViewModel {
     }
     
     var scheduleAttributedText: NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: "봉사일정: ", attributes: [.font: UIFont.systemFont(ofSize: 16), .foregroundColor: UIColor.gray])
-        attributedString.append(NSAttributedString(string: scheduleString, attributes: [.font: UIFont.systemFont(ofSize: 18), .foregroundColor: scheduleStringColor]))
+        let attributedString = NSMutableAttributedString(string: "봉사일정: ", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.gray])
+        attributedString.append(NSAttributedString(string: scheduleString, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: scheduleStringColor]))
         return attributedString
     }
     

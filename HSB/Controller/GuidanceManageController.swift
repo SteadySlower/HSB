@@ -76,6 +76,36 @@ class GuidanceManageController: UIViewController {
         tableView.register(GuidanceManageCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.separatorStyle = .none
     }
+    
+    func showCompleteAlert(guidance: Guidance) {
+        let alert = UIAlertController(title: "생활지도를 완료 처리합니다.", message: viewModel.guidanceCompleteMessage(guidance: guidance), preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let complete = UIAlertAction(title: "완료", style: .destructive) { _ in
+            self.viewModel.completeGuidance(guidance: guidance) {
+                self.tableView.reloadData()
+            }
+        }
+        alert.addAction(cancel)
+        alert.addAction(complete)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showDelayActionSheet(guidance: Guidance) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let datePickerController = DatePickerViewController()
+        actionSheet.setValue(datePickerController, forKey: "contentViewController")
+        let delay = UIAlertAction(title: "연기", style: .default) { _ in
+            let date = datePickerController.datePicker.date
+            self.viewModel.delayGuidance(guidance: guidance, date: date) {
+                self.tableView.reloadData()
+            }
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        actionSheet.addAction(delay)
+        actionSheet.addAction(cancel)
+        self.present(actionSheet, animated: true, completion: nil)
+        
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -107,11 +137,13 @@ extension GuidanceManageController: UITableViewDelegate {
 
 extension GuidanceManageController: GuidanceManageCellDelegate {
     func completeButtonTapped(in cell: GuidanceManageCell) {
-        return
+        guard let guidance = cell.guidance else { return }
+        showCompleteAlert(guidance: guidance)
     }
     
     func delayButtonTapped(in cell: GuidanceManageCell) {
-        return
+        guard let guidance = cell.guidance else { return }
+        showDelayActionSheet(guidance: guidance)
     }
 }
 
