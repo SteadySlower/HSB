@@ -25,6 +25,7 @@ struct GuidanceManageCellViewModel {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM월 dd일"
         var scheduleString = dateFormatter.string(from: guidance.date)
+        // 한번 연기한 일정이라면 표시되도록
         if guidance.isDelayed == true {
             scheduleString.append(contentsOf: " (연기)")
         }

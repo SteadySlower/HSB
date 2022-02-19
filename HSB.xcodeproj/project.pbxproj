@@ -63,6 +63,7 @@
 		0692553A2773E8C9000818E6 /* StudentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentService.swift; sourceTree = "<group>"; };
 		0692554227744544000818E6 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		069255452774478C000818E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		06BC58B327C0EBCF005C8AA0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		06CB13412775A4DB0093B11F /* GuidanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceService.swift; sourceTree = "<group>"; };
 		06F686362797E75A00E2CBC8 /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 		06F686382798D41C00E2CBC8 /* GuidanceManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceManageController.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		064D295327681A36000F4931 = {
 			isa = PBXGroup;
 			children = (
+				06BC58B327C0EBCF005C8AA0 /* README.md */,
 				064D295E27681A36000F4931 /* HSB */,
 				064D295D27681A36000F4931 /* Products */,
 			);

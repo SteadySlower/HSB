@@ -92,8 +92,10 @@ class GuidanceManageController: UIViewController {
     
     func showDelayActionSheet(guidance: Guidance) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
         let datePickerController = DatePickerViewController()
         actionSheet.setValue(datePickerController, forKey: "contentViewController")
+        
         let delay = UIAlertAction(title: "연기", style: .default) { _ in
             let date = datePickerController.datePicker.date
             self.viewModel.delayGuidance(guidance: guidance, date: date) {
@@ -101,10 +103,11 @@ class GuidanceManageController: UIViewController {
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
         actionSheet.addAction(delay)
         actionSheet.addAction(cancel)
-        self.present(actionSheet, animated: true, completion: nil)
         
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }
 
@@ -133,7 +136,7 @@ extension GuidanceManageController: UITableViewDelegate {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - GuidanceManageCellDelegate
 
 extension GuidanceManageController: GuidanceManageCellDelegate {
     func completeButtonTapped(in cell: GuidanceManageCell) {

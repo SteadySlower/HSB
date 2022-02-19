@@ -62,8 +62,8 @@ class StudentProfileViewController: UIViewController {
     lazy var actionSheet: UIAlertController = {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         GuidanceReason.allCases.forEach { reason in
-            let action = UIAlertAction(title: reason.description, style: .default) { _ in
-                self.actionSheetTapped(reason: reason)
+            let action = UIAlertAction(title: reason.description, style: .default) { [weak self] _ in
+                self?.actionSheetTapped(reason: reason)
             }
             actionSheet.addAction(action)
         }
@@ -79,10 +79,10 @@ class StudentProfileViewController: UIViewController {
         alert.addTextField { tf in
             tf.placeholder = "직접 입력하세요."
         }
-        let register = UIAlertAction(title: "등록", style: .default) { _ in
+        let register = UIAlertAction(title: "등록", style: .default) { [weak self] _ in
             let detail = alert.textFields?[0].text
             let reason = GuidanceReason.others(detail: detail)
-            self.actionSheetTapped(reason: reason)
+            self?.actionSheetTapped(reason: reason)
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         alert.addAction(register)
@@ -102,6 +102,7 @@ class StudentProfileViewController: UIViewController {
     init(student: Student) {
         self.viewModel = StudentProfileViewModel(student: student)
         super.init(nibName: nil, bundle: nil)
+        print("DEBUG: StudentProfileController init")
     }
     
     required init?(coder: NSCoder) {
@@ -112,6 +113,10 @@ class StudentProfileViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configure()
+    }
+    
+    deinit {
+        print("DEBUG: StudentProfileController deinit")
     }
     
     // MARK: - Selector
@@ -212,8 +217,8 @@ class StudentProfileViewController: UIViewController {
     func showRegisterResult(guidance: Guidance) {
         let alert = UIAlertController(title: "등록 완료", message: nil, preferredStyle: .alert)
         alert.message = viewModel.guidanceRegistrationMessage(guidance: guidance)
-        let ok = UIAlertAction(title: "OK", style: .default) { _ in
-            alert.dismiss(animated: true, completion: self.cancelButtonTapped)
+        let ok = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            alert.dismiss(animated: true, completion: self?.cancelButtonTapped)
         }
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
