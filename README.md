@@ -8,11 +8,9 @@
 
 [개발 과정 자세히 보기](https://velog.io/@comdongsam/series/%ED%95%99%EC%83%9D%EB%B6%80-%EC%95%B1-%EA%B0%9C%EB%B0%9C-%EB%8F%84%EC%A0%84%EA%B8%B0)
 
-서버 코드는 아래 깃허브 주소로 가주세요.
+서버 코드는 아래 깃허브 주소에서 보실 수 있습니다.
 
 [서버 코드 보러가기](https://github.com/SteadySlower/HSB_server)
-
-2021년 12월 14일 시작하여 현재 잠시 쉬어가는 중입니다. 😴
 
 # 핵심 기능 설계 ⚙️
 1. 반, 번호, 이름으로 학생 얼굴 조회
