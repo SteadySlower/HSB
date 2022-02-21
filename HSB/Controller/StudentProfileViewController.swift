@@ -102,7 +102,6 @@ class StudentProfileViewController: UIViewController {
     init(student: Student) {
         self.viewModel = StudentProfileViewModel(student: student)
         super.init(nibName: nil, bundle: nil)
-        print("DEBUG: StudentProfileController init")
     }
     
     required init?(coder: NSCoder) {
@@ -113,10 +112,6 @@ class StudentProfileViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configure()
-    }
-    
-    deinit {
-        print("DEBUG: StudentProfileController deinit")
     }
     
     // MARK: - Selector
