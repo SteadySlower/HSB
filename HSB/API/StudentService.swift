@@ -23,7 +23,17 @@ struct SchoolStatus: Codable {
 struct StudentService {
     static let shared = StudentService()
     
+    var schoolStatus: SchoolStatus?
+    
     func fetchSchoolStatus(completionHandler: @escaping((SchoolStatus) -> Void)) {
+        // 캐싱한 데이터 사용
+        if let schoolStatus = schoolStatus {
+            completionHandler(schoolStatus)
+            print("캐싱한 데이터 사용됨")
+            return
+        }
+
+        // 없을 경우에 서버에서 데이터 가져오기
         AF.request("\(SERVER_BASE_URL)/students/totalNumber").responseDecodable(of: Response<SchoolStatus>.self) { data in
             guard let response = data.value else { return }
             guard response.isSuccess == true else { return }
