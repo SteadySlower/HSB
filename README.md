@@ -51,13 +51,14 @@
 
 # 사용한 기술 🛠
 ## 클라이언트 (iOS)
-- Swift, UIKit
-- StoryBoard 없이 순수 코드로 UI 구현
+- Swift
+- UIKit (StoryBoard 없이 순수 코드로 UI 구현)
 - MVVM, Singleton, Delegate
 - Swift Package Manager, Alamofire, Kingfisher
 - Xcode, iOS simulator
 ## 서버 (nodejs)
-- javascript, expressjs, npm, mysql2, pm2
+- Javascript
+- Expressjs, npm, mysql2, pm2
 - MySQL
 - Visual Studio Code, Postman, MySQL WorkBench
 ## 공통
@@ -96,7 +97,8 @@
 UIStackView와 UICollectionView 중에서 고민하다가 UICollectionView를 선택하였습니다.
 1. 복수의 row와 column으로 구성된 버튼들을 Stack으로 구현하기에는 복잡합니다.
 2. UICollectionView의 delegate method (didSelect)를 통해서 버튼처럼 활용이 가능합니다.
-3. UIButton로 구현하는 경우 selector 함수는 sender만 인자로 받기 때문에 선택된 학년, 반, 번호의 정보를 UIButton이 하나하나 가지고 있어야 합니다.
+3. UIButton로 구현하는 경우 selector 함수는 sender만 인자로 받기 때문에 선택된 학년, 반, 번호의 정보를 UIButton이 하나하나 가지고 있어야 합니다.  
+![](./readme_img/ts3.png)
 
 ## 생활지도 사유가 기타일 때 구체적인 사유 저장
 
@@ -162,7 +164,8 @@ lazy var actionSheet: UIAlertController = {
     
     return actionSheet
 }()
-```
+```  
+![](./readme_img/ts4.png)
 
 ## UITableViewCell 내부에서 삭제 버튼 구현하기
 
@@ -187,6 +190,7 @@ extension StudentListViewController: StudentListCellDelegate {
     }
 }
 ```
+![](./readme_img/ts5.png)
 
 ## HTTP Response 구조체 만들기
 
@@ -290,8 +294,18 @@ class StudentListViewModel {
 }
 ```
 
-##
+## action sheet 안에 date picker 넣기
 
 ### Trouble
+봉사 활동 연기를 위해서 사용자에게 날짜 입력을 받아야 합니다.  
+그러기 위해서는 action sheet 내부의 date picker를 통해서 입력 받아야 합니다.
 
 ### Shooting
+action sheet의 setValue 메소드를 통해서 content 영역에 ViewController를 넣을 수 있습니다.
+이 코드를 통해 런타임에 date picker를 action sheet에 삽입할 수 있습니다.
+```swift
+let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+let datePickerController = DatePickerViewController()
+actionSheet.setValue(datePickerController, forKey: "contentViewController")
+```
+![](./readme_img/ts2.png)
