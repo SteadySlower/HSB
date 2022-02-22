@@ -49,6 +49,8 @@
  
 [8. 봉사지도 기능 구현](https://velog.io/@comdongsam/8.-%EC%8C%A4-%EC%A0%80-%EC%98%A4%EB%8A%98-%ED%95%99%EC%9B%90-%EA%B0%80%EC%95%BC%ED%95%98%EB%8A%94%EB%8D%B0%EC%9A%94). 
 
+[9. 회고](https://velog.io/@comdongsam/9.-%ED%95%99%EC%83%9D%EB%B6%80-%EC%95%B1%EC%9D%84-%EB%A7%88%EB%AC%B4%EB%A6%AC-%ED%95%98%EB%A9%B0). 
+
 # 사용한 기술 🛠
 ## 클라이언트 (iOS)
 - Swift
