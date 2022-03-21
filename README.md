@@ -54,7 +54,7 @@
 # 사용한 기술 🛠
 ## 클라이언트 (iOS)
 - Swift
-- UIKit (StoryBoard 없이 순수 코드로 UI 구현)
+- Code-based UI (UIKit)
 - MVVM, Singleton, Delegate
 - Swift Package Manager, Alamofire, Kingfisher
 - Xcode, iOS simulator
